@@ -58,28 +58,31 @@
                     <?php } ?>
                     </thead>
                     <tbody>
-                    <?php
-                    foreach ($pageData['data']['tasksList'] as $key => $value) { ?>
-                        <tr>
-                            <td><?php echo $value['name']; ?></td>
-                            <td><?php echo $value['email']; ?></td>
-                            <td><?php echo $value['content']; ?></td>
-                            <td>
-                                <?php if ($value['status'] != 1) { ?>
-                                    <p class="text-center alert-secondary"> Not ready </p>
-                                <?php } else { ?>
-                                    <p class="text-center alert-success"> Done </p>
-                                <?php } ?>
-                            </td>
-                            <?php if ($pageData['permission'] == 1) { ?>
-                                <td>
-                                    <div class="btn-group-vertical">
-                                        <a href="/tasks/edit?id=<?php echo $key?>" class="btn btn-outline-danger"><i>edit</i></a>
-                                        <a href="/tasks/delete?id=<?php echo $key?>" class="btn btn-outline-dark"><i>delete</i></a>
-                                    </div>
-                                </td>
-                            <?php } ?>
-                        </tr>
+                    <?php if (!empty($pageData['data']['tasksList'])) { ?>
+
+                        <?php foreach ($pageData['data']['tasksList'] as $key => $value) { ?>
+                                <tr>
+                                    <td><?php echo $value['name']; ?></td>
+                                    <td><?php echo $value['email']; ?></td>
+                                    <td><?php echo $value['content']; ?></td>
+                                    <td>
+                                        <?php if ($value['status'] != 1) { ?>
+                                            <p class="text-center alert-secondary"> Not ready </p>
+                                        <?php } else { ?>
+                                            <p class="text-center alert-success"> Done </p>
+                                        <?php } ?>
+                                    </td>
+                                    <?php if ($pageData['permission'] == 1) { ?>
+                                        <td>
+                                            <div class="btn-group-vertical">
+                                                <a href="/tasks/edit?id=<?php echo $key?>" class="btn btn-outline-danger"><i>edit</i></a>
+                                                <a href="/tasks/delete?id=<?php echo $key?>" class="btn btn-outline-dark"><i>delete</i></a>
+                                            </div>
+                                        </td>
+                                    <?php } ?>
+                                </tr>
+                        <?php } ?>
+
                     <?php } ?>
                     </tbody>
                     <tfoot>
