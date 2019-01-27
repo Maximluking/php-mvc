@@ -3,3 +3,5 @@
 
 #db conf
 conf/db.php
+
+/vendor/

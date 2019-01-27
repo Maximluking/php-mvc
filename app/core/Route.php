@@ -36,9 +36,7 @@ class Route
         if (file_exists($controllerPath)) {
             require_once $controllerPath;
         } else {
-            echo "FROM CONTROLLER";
-            die();
-            self::ErrorPage404();
+            self::ErrorPageGoDef();
         }
 
         $controllerName = '\\app\controllers\\' . $controllerName;
@@ -49,13 +47,12 @@ class Route
         if(method_exists($controller, $action)) {
             $controller->$action();
         } else {
-            echo "FROM ACTION";die();
-            self::ErrorPage404();
+            self::ErrorPageGoDef();
         }
     }
 
-    public static function ErrorPage404()
+    public static function ErrorPageGoDef()
     {
-        header("Location: /404.php");
+        header("Location: /");
     }
 }
