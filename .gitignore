@@ -1,0 +1,5 @@
+# phpstorm project files
+.idea
+
+#db conf
+conf/db.php

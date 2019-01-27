@@ -1,0 +1,14 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^/(public)
+RewriteRule ^css/(.*)$ /public/css/$1 [L]
+RewriteRule ^fonts/(.*)$ /public/fonts/$1 [L]
+RewriteRule ^js/(.*)$ /public/js/$1 [L]
+RewriteRule ^images/(.*)$ /public/image/$1 [L]
+RewriteRule (.*) /public/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /public/

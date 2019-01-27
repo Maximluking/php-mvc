@@ -1,0 +1,16 @@
+{
+    "name": "max/php-mvc-test",
+    "description": "test php MVC task-manager withut frameworks",
+    "authors": [
+        {
+            "name": "Maxim Lukin",
+            "email": "maximluking@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    }
+}
